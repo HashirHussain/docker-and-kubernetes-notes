@@ -16,7 +16,8 @@ Docker is an open source PaaS platform for building, deploying and managing soft
 Containers are portable unit of software in which application code is packaged along with it's dependencies. in Docker, containers are running instance of an Image.
 
 ## What are Images in Docker
-Docker image is a file that contains layer by layer set of instructions to run an application. Docker Image contains application code, libraries, tools, dependencies and other files needed to make an application run. In fact containers are running instance of an Image. `docker run` command use to create a container for a specific Image.  
+Docker image is a file that contains layer by layer set of instructions to run an application. Docker Image contains application code, libraries, tools, dependencies and other files needed to make an application run. In fact containers are running instance of an Image. `docker run` command use to create a container for a specific Image.
+
 ![Many Containers can be created from single Docker image](/images/one-image-multiple-containers.jpg "Many Containers can be created from single Docker image")
 
 ## What are Virtual Machines (VMs)
