@@ -28,7 +28,7 @@ learn more here [What is a hypervisor?](https://www.vmware.com/topics/glossary/c
 
 
 ## Containers Vs Virtual Machines(VMs)
-![Containers Vs Virtual Machine](/images/virtual-machines-vs-containers.jpgg "Containers Vs Virtual Machine")
+![Containers Vs Virtual Machine](/images/virtual-machines-vs-containers.jpg "Containers Vs Virtual Machine")
 
 
 
