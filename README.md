@@ -20,9 +20,11 @@ Docker image is a file that contains layer by layer set of instructions to run a
 
 ## What are Virtual Machines (VMs)
 A Virtual Machine is a virtual environment that behaves like an actual computer with its own CPU, memory, network interface and storage created on a physical hardware system. A software called Hypervisor is responsible to create VMs.  
+Learn more here [What is a virtual machine?](https://www.vmware.com/topics/glossary/content/virtual-machine.html)
 
 ## What is Hypervisor
-Hypervisor is a software layer above host operating system that creates and runs one or more VMs by sharing underlying hardware resources.
+Hypervisor is a software layer above host operating system that creates and runs one or more VMs by sharing underlying hardware resources.  
+learn more here [What is a hypervisor?](https://www.vmware.com/topics/glossary/content/hypervisor.html)
 
 
 ## Containers Vs Virtual Machines(VMs)
