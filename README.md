@@ -28,7 +28,17 @@ learn more here [What is a hypervisor?](https://www.vmware.com/topics/glossary/c
 
 
 ## Containers Vs Virtual Machines(VMs)
-![Containers Vs Virtual Machine](/images/virtual-machines-vs-containers.jpg "Containers Vs Virtual Machine")
+![Containers Vs Virtual Machine](/images/virtual-machines-vs-containers.jpg "Containers Vs Virtual Machine") 
+Both Docker and Virtual Machines are complimentary tools intended to improve the utilization of IT resources.  
 
+Virtual Machines has enabled enterprises to combine several servers running different application onto a single physical server even if they run different operating systems. While the number of VMs that can exist on a single IT infrastructure is constrained by the amount of CPU and RAM that they consume.  
 
+Whereas Containers party responsible to reduce the amount of consumption of IT resources. Containers often shares single OS instance and dependent libraries hence more focused on application code.  
 
+| Containers      | Virtual Machines |
+| ----------- | ----------- |
+| OS level isolation   | Hardware level isolation         |
+| lightweight (KBs / MBs)   | Heavyweight (GBs)        |
+| Boots in seconds      | Takes few minutes to boot       |
+| destroyed and re-created rather than moving   | Can move from one host to another        |
+| Consumes less resources   | Consumes large amout of resources        |
