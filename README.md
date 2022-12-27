@@ -2,12 +2,12 @@
 ## Table of contents
 
 - What is Docker
-- What are containers
+- What are Containers
 - What are Images in Docker
 - What are Virtual Machines (VMs)
 - What is Hypervisor
 - Containers Vs Virtual Machines
-
+- What is Docker Hub
 
 ## What is Docker
 Docker is an open source PaaS platform for building, deploying and managing software in package called containers.
@@ -44,3 +44,6 @@ Whereas Containers party responsible to reduce the amount of consumption of IT r
 | Boots in seconds      | Takes few minutes to boot       |
 | destroyed and re-created rather than moving   | Can move from one host to another        |
 | Consumes less resources   | Consumes large amout of resources        |
+
+## What is Docker Hub
+(Docker Hub)[https://hub.docker.com/] is the online registry tool for Docker. You can find, publish and share Docker Images on Docker Hub.
