@@ -46,4 +46,4 @@ Whereas Containers party responsible to reduce the amount of consumption of IT r
 | Consumes less resources   | Consumes large amout of resources        |
 
 ## What is Docker Hub
-[Docker Hub](https://hub.docker.com/) is the online registry tool for Docker. You can find, publish and share Docker Images on Docker Hub.
+[Docker Hub](https://hub.docker.com/) is the online registry tool for Docker. You can use, publish and share Docker Images via Docker Hub.
