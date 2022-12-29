@@ -59,4 +59,4 @@ Whereas Containers party responsible to reduce the amount of consumption of IT r
 
 ## Create an containerized application
 
-We will be creating a simple Node.js application for our practicals.
+I'll work on a [sample Node.js application](/sample-app) but you can create your own application to practice on.
