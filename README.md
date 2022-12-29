@@ -60,3 +60,15 @@ Whereas Containers party responsible to reduce the amount of consumption of IT r
 ## Create an containerized application
 
 I'll work on a [sample Node.js application](/sample-app) but you can create your own application to practice on.
+
+Create an empty file called `Dockerfile` (without any file extension) at root level of the project and paste the blow content.
+
+```
+FROM node:18-alpine
+WORKDIR /app
+COPY . .
+RUN npm install
+RUN echo 'Docker is about to start the server'
+CMD ["node", "server.js"]
+EXPOSE 8080
+```
