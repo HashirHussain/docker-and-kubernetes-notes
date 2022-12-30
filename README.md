@@ -57,7 +57,18 @@ Whereas Containers party responsible to reduce the amount of consumption of IT r
 
 [Docker Hub](https://hub.docker.com/) is the online registry tool for Docker. You can use, publish and share Docker Images via Docker Hub.
 
-## Create an containerized application
+## Create containerized application
+
+Docker can build or creates images based on the "instructions" we write in `Dockerfile`.
+
+Here is the format of `Dockerfile`.
+
+```
+# Comment
+INSTRUCTION argument
+```
+
+**The instructions are not case-sensitive. However, convention is for them to be UPPERCASE to distinguish them from arguments more easily.**
 
 I'll work on a [sample Node.js application](/sample-app) but you can create your own application to practice on.
 
@@ -68,7 +79,78 @@ FROM node:18-alpine
 WORKDIR /app
 COPY . .
 RUN npm install
-RUN echo 'Docker is about to start the server'
 CMD ["node", "server.js"]
 EXPOSE 8080
 ```
+
+Docker runs instructions one after another/layer by layer from top to bottom. let us understand each instruction:
+
+**FROM**
+
+**`Dockerfile` must begin with `FROM` instruction
+that specify the base image for subsequent instructions. It pulls image either locally or from online docker registry. Here "node" is the image and "18-alpine" is the tag. No tag name means pull the latest tag from the image.**
+
+```
+Syntax: FROM <Image>:<Tag>
+```
+
+learn more here: [Docker Docs - FROM](https://docs.docker.com/engine/reference/builder/#from)
+
+**WORKDIR**
+
+`WORKDIR` is used to define the working directory of a Docker container at any given time. Frequently used instructions like `RUN`, `CMD`, `ADD`, `COPY`, or `ENTRYPOINT` will be executed in the directory specified in `WORKDIR`.
+
+```
+Syntax: WORKDIR /my-project-path-inside-container
+```
+
+learn more here: [Docker Docs - WORKDIR](https://docs.docker.com/engine/reference/builder/#workdir)
+
+**COPY**
+
+The `COPY` instruction copies the files and directories inside a Docker container from your local machine.
+
+```
+Syntax: COPY <source-path> <destination-path-inside-container>
+Destination path is typically define in `WORKDIR`.
+
+```
+
+learn more here: [Docker Docs - COPY](https://docs.docker.com/engine/reference/builder/#copy)
+
+**RUN**
+
+The `RUN` instruction will execute any commands in a new layer on top of the current image and commit the results. The resulting committed image will be used for the next step in the Dockerfile.
+
+```
+Syntax:
+RUN <command>
+RUN ["executable", "param1", "param2"]
+
+```
+
+learn more here: [Docker Docs - RUN](https://docs.docker.com/engine/reference/builder/#run)
+
+**CMD**
+
+`CMD` instruction executes at the time of running a container. It is asked to have one `CMD` command, If the `Dockerfile` has multiple `CMDs`, it only applies the instructions from the last one.
+
+```
+Syntax:
+CMD ["executable","param1","param2"] (exec form, this is the preferred form)
+CMD ["param1","param2"] (as default parameters to ENTRYPOINT)
+CMD command param1 param2 (shell form)
+
+```
+
+learn more here: [Docker Docs - CMD](https://docs.docker.com/engine/reference/builder/#cmd)
+
+**EXPOSE**
+
+The `EXPOSE` instruction informs Docker that the container listens on the specified network ports at runtime. We can interact with a running Container via exposed port from outside the container.
+
+```
+Syntax: EXPOSE <PORT_NUMBER>
+```
+
+learn more here: [Docker Docs - EXPOSE](https://docs.docker.com/engine/reference/builder/#expose)
