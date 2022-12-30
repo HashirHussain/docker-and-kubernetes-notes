@@ -9,8 +9,11 @@
 - What is Hypervisor
 - Containers Vs Virtual Machines
 - What is Docker Hub
-- Practicals
-  - Create an Containerized application
+- Create a simple containerized application
+  - prepare `Dockerfile`
+  - Build an Image
+  - Start an app container from Image
+  - Working on container
 
 ## What is Docker
 
@@ -22,7 +25,7 @@ Containers are portable unit of software in which application code is packaged a
 
 ## What are Images in Docker
 
-Docker image is a file that contains layer by layer set of instructions to run an application. Docker Image contains application code, libraries, tools, dependencies and other files needed to make an application run. In fact containers are running instance of an Image. `docker build` command use to create an Image from specific `Dockerfile`.
+Docker image is a file that contains layer by layer set of instructions to run an application. Docker Image contains application code, libraries, tools, dependencies and other files needed to make an application run. In fact containers are running instance of an Image. `docker build` command use to create an Image from specific `Dockerfile`. Images are read-only and hence modification to an image is not possible after build.
 
 ![Many Containers can be created from single Docker image](/images/one-image-multiple-containers.jpg "Many Containers can be created from single Docker image")
 
@@ -57,9 +60,11 @@ Whereas Containers party responsible to reduce the amount of consumption of IT r
 
 [Docker Hub](https://hub.docker.com/) is the online registry tool for Docker. You can use, publish and share Docker Images via Docker Hub.
 
-## Create containerized application
+## Create a simple containerized application
 
-Docker can build or creates images based on the "instructions" we write in `Dockerfile`.
+Docker can build or create images based on the "instructions" we write in `Dockerfile`.
+
+### prepare `Dockerfile`
 
 Here is the format of `Dockerfile`.
 
@@ -71,6 +76,10 @@ INSTRUCTION argument
 **The instructions are not case-sensitive. However, convention is for them to be UPPERCASE to distinguish them from arguments more easily.**
 
 I'll work on a [sample Node.js application](/sample-app) but you can create your own application to practice on.
+
+Open a terminal and change the directory to sample-app
+
+`cd /path/to/sample-app`
 
 Create an empty file called `Dockerfile` (without any file extension) at root level of the project and paste the blow content.
 
@@ -154,3 +163,34 @@ Syntax: EXPOSE <PORT_NUMBER>
 ```
 
 learn more here: [Docker Docs - EXPOSE](https://docs.docker.com/engine/reference/builder/#expose)
+
+### Build an Image
+
+Open a terminal and change to directory to sample-app `cd /path/to/sample-app` and run the below command to build container Image.
+
+```
+docker build -t first-image .
+```
+
+You will see the output somewhat like this:
+![Docker build output](/images/docker-build-output.jpg "Docker build output")
+
+The `docker build` command uses the `Dockerfile` to build a new container image. You might have noticed that Docker downloaded a lot of “layers”. This is because you instructed the builder that you wanted to start from the `node:18-alpine image. But, since you didn’t have that on your machine, Docker needed to download the image.
+
+The `-t` flag tags your image. Think of this simply as a human-readable name for the final image. Since you named the image `first-image`, you can refer to that image when you run a container.
+
+The `.` at the end of the docker build command tells Docker that it should look for the Dockerfile in the current directory.
+
+### Start an app container from Image
+
+Now that you have an image, you can run the application in a `container`. Start the container using and specify the name of the image you just created:
+
+```
+docker run -p 3000:8080 first-image
+```
+
+`-p` flag creates a mapping between container's port with your host port i.e. `-p <host_port>:<container_port>`
+
+After few milliseconds, will see the output like this in your computer:
+
+![Container run output](/images/container-run-output.jpg "Container run output")
