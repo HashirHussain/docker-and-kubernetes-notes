@@ -191,6 +191,4 @@ docker run -p 3000:8080 first-image
 
 `-p` flag creates a mapping between container's port with your host port i.e. `-p <host_port>:<container_port>`
 
-After few milliseconds, will see the output like this in your computer:
-
-![Container run output](/images/container-run-output.jpg "Container run output")
+After few milliseconds, visit `http://localhost:3000/` to see the application running :slightly_smiling_face:
